@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "KX8mLeaRrCBBHadUH59t1No3FiydXsyHqksVeTiStGI=",
+  "Source": "web-API",
+  "BasePath": "_content/web-API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "web-API\\wwwroot",
+      "Source": "web-API",
+      "ContentRoot": "C:\\Users\\ashra\\OneDrive\\Documents\\Visual Studio 2022\\.NET CRUD\\web-API\\web-API\\wwwroot\\",
+      "BasePath": "_content/web-API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\ashra\\OneDrive\\Documents\\Visual Studio 2022\\.NET CRUD\\web-API\\web-API\\wwwroot\\index.html",
+      "SourceId": "web-API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ashra\\OneDrive\\Documents\\Visual Studio 2022\\.NET CRUD\\web-API\\web-API\\wwwroot\\",
+      "BasePath": "_content/web-API",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}

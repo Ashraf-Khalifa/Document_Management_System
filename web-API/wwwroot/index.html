@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Fetched Files</title>
+    <style>
+        /* Styling for the page layout and elements */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #fileList {
+            list-style: none;
+            padding: 0;
+        }
+
+            #fileList li {
+                margin-bottom: 10px;
+            }
+
+            #fileList a {
+                text-decoration: none;
+                color: #007bff;
+                transition: color 0.3s ease-in-out;
+            }
+
+                #fileList a:hover {
+                    color: #0056b3;
+                }
+
+        #fetchFilesButton {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+            #fetchFilesButton:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Fetched PDF Files</h1>
+        <button id="fetchFilesButton">Fetch Files</button>
+        <ul id="fileList"></ul>
+    </div>
+
+    <script>
+        // JavaScript code for fetching and displaying files
+        document.getElementById("fetchFilesButton").addEventListener("click", async function () {
+            try {
+                const folderName = "003 Inside 638276373395192932.pdf";
+
+                // Fetch the list of files using an API endpoint
+                const filesResponse = await fetch(`/api/Contacts/GetFiles?folderName=${folderName}`);
+                const fileData = await filesResponse.json();
+
+                const fileList = document.getElementById("fileList");
+
+                // Clear existing list
+                fileList.innerHTML = '';
+
+                // Iterate through the list of file URLs
+                fileData.forEach(fileUrl => {
+                    if (fileUrl.toLowerCase().endsWith('.pdf')) {
+                        // Create a list item and a link for each PDF file
+                        const li = document.createElement("li");
+                        const link = document.createElement("a");
+                        link.href = fileUrl;
+                        link.textContent = fileUrl.split('/').pop(); // Extract filename from URL
+                        li.appendChild(link);
+                        fileList.appendChild(li);
+                    }
+                });
+             // Attach event listeners to download links
+            const downloadLinks = document.querySelectorAll("#fileList a");
+            downloadLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault(); // Prevent default link behavior
+                    const fileUrl = link.href;
+                    downloadFile(fileUrl);
+                });
+            });
+        } catch (error) {
+            // Handle errors
+            console.error("Error fetching files:", error);
+        }
+    });
+
+    // Function to initiate file download
+    async function downloadFile(fileUrl) {
+        try {
+            const response = await fetch(fileUrl);
+            const blob = await response.blob();
+            const fileName = fileUrl.split('/').pop();
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = fileName;
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        } catch (error) {
+            // Handle errors
+            console.error("Error downloading file:", error);
+        }
+    }
+</script>
+
+</body>
+</html>
