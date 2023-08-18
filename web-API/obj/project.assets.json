@@ -3972,11 +3972,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ashra\\OneDrive\\Desktop\\Document Management System\\Document_Management_System\\web-API\\web-API.csproj",
+      "projectUniqueName": "C:\\Users\\ashra\\OneDrive\\Desktop\\New folder (13)\\Document_Management_System\\web-API\\web-API.csproj",
       "projectName": "web-API",
-      "projectPath": "C:\\Users\\ashra\\OneDrive\\Desktop\\Document Management System\\Document_Management_System\\web-API\\web-API.csproj",
+      "projectPath": "C:\\Users\\ashra\\OneDrive\\Desktop\\New folder (13)\\Document_Management_System\\web-API\\web-API.csproj",
       "packagesPath": "C:\\Users\\ashra\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ashra\\OneDrive\\Desktop\\Document Management System\\Document_Management_System\\web-API\\obj\\",
+      "outputPath": "C:\\Users\\ashra\\OneDrive\\Desktop\\New folder (13)\\Document_Management_System\\web-API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
